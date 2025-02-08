@@ -1,0 +1,1 @@
+//los objetos que se van a insertar en la base de datos, se van a basar en este modelo. Ejemplo, card se va a basar en este modelo. 
