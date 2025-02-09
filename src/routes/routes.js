@@ -1,15 +1,23 @@
 const express= require('express')
-const {mostrarMensajitoController}= require('../controllers/controller')//lo importamos como objeto. 
-
-
+const{getAlumnosController, addAlumnosController}=require('../controllers/controller')
 //configurar los router
 const router=express.Router()
 
 
 //configurar los router correspondientes
 
-router.get ('/card', mostrarMensajitoController )
+router.get ('/alumnos', getAlumnosController )
 //logica de las rutas delegado a ->controller
 
 
+//insertamos un elemento POST *
+ router.post('/alumnos', addAlumnosController)
+
+
+
+
+
+
 module.exports = router;
+
+

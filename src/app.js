@@ -1,9 +1,9 @@
 //importamos el modulo server
- const server=require('./server/server')
+const server=require('./server/server')
 
- //llamados a la hoja confing
+//llamados a la hoja confing
 
- require('./dateBase/config')
+require('./dateBase/config')
 
 //definir el puerto
 require ('dotenv').config()

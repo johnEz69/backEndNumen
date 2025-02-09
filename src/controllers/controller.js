@@ -1,10 +1,38 @@
-const mostrarMensajitoController=(request, response)=>{
-// la logica del controlador ("insertar producto en la DB") -> SE DELEGA A SERVICE.JS PARA SER REUTILIZADA
+const {getAlumnosService, addAlumnosService}= require ('../services/service')
 
-response.send ("aca van autitos")
+const getAlumnosController  =async(request, response)=>{
+
+   const todosLosAlumnos= await getAlumnosService(request)//con esto consigo la listo de la base de datos
+
+
+  //puede devolver una lista
+  //puede devolver un error
+
+   response.json(todosLosAlumnos)
+
+   
 
 
 }
+
+//POST
+const addAlumnosController = async(request, response)=>{
+    
+
+
+ const nuevoAlumno= addAlumnosService(request)//inserta un alumno en la colección
+
+   response.json(nuevoAlumno)
+
+}
+
+
+
+
+
+
+
+
 
 
 
@@ -16,7 +44,8 @@ response.send ("aca van autitos")
 
 module.exports = { 
 
-mostrarMensajitoController //tenemos que exportarlo como objeto. 
+    getAlumnosController, //tenemos que exportarlo como objeto.
+    addAlumnosController 
 
 
 }

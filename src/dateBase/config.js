@@ -8,10 +8,13 @@ require('dotenv').config()
 
 const DATABASE=process.env.DATABASE_URL
 
+//console.log("DATABASE_URL:", process.env.DATABASE_URL);
+
+
 //funcion para conectarnos a la base de datos
 
 
-const connect=()=>{
+const connect=async()=>{
 
 
     try{
@@ -29,5 +32,3 @@ const connect=()=>{
 
 
 connect()
-
-

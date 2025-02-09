@@ -2,6 +2,11 @@
 
 const express= require ('express')
 const server=express()
+server.use(express.json()) //le permite entender a express el json del body de las peticiones
+
+
+
+
 
 const router=require ('../routes/routes')
 
@@ -27,6 +32,7 @@ server.use('/',router)
 
 
 module.exports=server;
+
 
 
 
