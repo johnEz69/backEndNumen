@@ -26,6 +26,9 @@ server.use('/',router)
 
 
 
+
+
+
 //la configuraión de los routers delegado a la carpeta de routes
 //productsRouter.js
 //authRouter.js

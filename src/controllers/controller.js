@@ -1,4 +1,5 @@
-const {getAlumnosService, addAlumnosService}= require ('../services/service')
+const { request } = require('express')
+const {getAlumnosService, addAlumnosService, getAlumnosIdService,updateAlumnosService }= require ('../services/service')
 
 const getAlumnosController  =async(request, response)=>{
 
@@ -11,6 +12,17 @@ const getAlumnosController  =async(request, response)=>{
    response.json(todosLosAlumnos)
 
    
+
+
+}
+
+
+
+const getAlumnosIdController =async (request, response)=>{
+
+   const alumnoPorId= await getAlumnosIdService(request)//creamos un servicio que derivamos a 
+
+   response.json(alumnoPorId)
 
 
 }
@@ -30,9 +42,24 @@ const addAlumnosController = async(request, response)=>{
 
 
 
+// POST POR id
+
+
+const updateAlumnoController =async(request, response)=>{
+
+   const alumnoEditado= updateAlumnosService(request)//inserta un alumno en la colección
+
+   response.json(alumnoEditado)
+
+
+}
 
 
 
+
+
+
+//paso 2
 
 
 
@@ -45,7 +72,9 @@ const addAlumnosController = async(request, response)=>{
 module.exports = { 
 
     getAlumnosController, //tenemos que exportarlo como objeto.
-    addAlumnosController 
+    addAlumnosController,
+    getAlumnosIdController,
+    updateAlumnoController
 
 
 }
