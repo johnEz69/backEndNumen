@@ -1,62 +1,24 @@
 //configurar el servidor
 
-const express= require ('express')
-const server=express()
-server.use(express.json()) //le permite entender a express el json del body de las peticiones
+const express = require("express");
+const server = express();
+server.use(express.json()); //le permite entender a express el json del body de las peticiones
 
-
-
-
-
-const router=require ('../routes/routes')
-
-
-
+const router = require("../routes/routes");
 
 //prueba
-server.get('/', (request,response)=>{
+server.get("/", (request, response) => {
+  response.send("prueba de servidor funcionando");
+});
 
-    response.send("prueba de servidor funcionando")
-})
-
-
-
-//ejecutar los routers, que es un enlatado de rutas. 
-server.use('/',router)
-
-
-
-
-
+//ejecutar los routers, que es un enlatado de rutas.
+server.use("/", router);
 
 //la configuraión de los routers delegado a la carpeta de routes
 //productsRouter.js
 //authRouter.js
 
-
-module.exports=server;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+module.exports = server;
 
 /*
 ROUTER PRODUCTOS
