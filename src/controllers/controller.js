@@ -1,5 +1,5 @@
 const { request } = require('express')
-const {getAlumnosService, addAlumnosService, getAlumnosIdService,updateAlumnosService }= require ('../services/service')
+const {getAlumnosService, addAlumnosService, getAlumnosIdService,updateAlumnosService, deleteAlumnoService }= require ('../services/service')
 
 const getAlumnosController  =async(request, response)=>{
 
@@ -56,6 +56,18 @@ const updateAlumnoController =async(request, response)=>{
 
 
 
+const deleteAlumnoController =async(request, response)=>{
+
+   const alumnoEliminado= deleteAlumnoService(request)//inserta un alumno en la colección
+
+   response.json(alumnoEliminado)
+
+
+}
+
+deleteAlumnoController
+
+
 
 
 
@@ -74,7 +86,8 @@ module.exports = {
     getAlumnosController, //tenemos que exportarlo como objeto.
     addAlumnosController,
     getAlumnosIdController,
-    updateAlumnoController
+    updateAlumnoController,
+    deleteAlumnoController
 
 
 }

@@ -1,6 +1,6 @@
 //importo el modelo 
 const modeloDeAlumnos= require('../models/alumnos.models');
-const { request, response } = require('../server/server');
+//const { request, response } = require('../server/server'); eliminamos una linea que puede causar problemas 
 
 //logica del controlador
 
@@ -105,7 +105,26 @@ const updateAlumnosService =async (request, response)=>{
 }
 
 
+const deleteAlumnoService =async (request, response)=>{
+  const {id}=request.params
+ 
 
+  try {
+    
+   const alumnoEliminadofinal= await modeloDeAlumnos.deleteOne({_id:id})//un objeto y la propiedad que nos ayuda a ubicarla
+    //Tiene un contador que computa las eliminaciones, si se elima queda en 0. 
+    if (alumnoEliminadofinal.deleteCount===0){
+
+      return {message:"alumno no encontrado", statusCode: 404}
+    }
+    return {message:"auto eliminado con exito", statusCode: 200}
+
+  } catch (error) {
+    return {messege:"ocurrio un error ", statusCode:400}
+  }
+
+
+}
 
 
 
@@ -121,7 +140,8 @@ module.exports={
   getAlumnosService,
   addAlumnosService,
   getAlumnosIdService,
-  updateAlumnosService  // luego lo importamos en el controlador
+  updateAlumnosService,
+  deleteAlumnoService  // luego lo importamos en el controlador
 
 
 }

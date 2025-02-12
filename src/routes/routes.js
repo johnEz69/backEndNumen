@@ -1,5 +1,5 @@
 const express= require('express')
-const{getAlumnosController, addAlumnosController, getAlumnosIdController, updateAlumnoController}=require('../controllers/controller')
+const{getAlumnosController, addAlumnosController, getAlumnosIdController, updateAlumnoController, deleteAlumnoController}=require('../controllers/controller')
 //configurar los router
 const router=express.Router()
 
@@ -19,12 +19,23 @@ router.get ('/alumnos', getAlumnosController )
  router.post('/alumnos', addAlumnosController)
 
 
-
+//pedimos el objeto
 router.get('/alumnos/:id', getAlumnosIdController)//ponemos la variable en un :id o :pepito
   
-
-
+// editamos el objeto
 router.put('/alumnos/:id', updateAlumnoController)
+
+
+router.delete('/alumnos/:id', deleteAlumnoController)
+
+
+
+
+
+
+
+
+
 
 
 
