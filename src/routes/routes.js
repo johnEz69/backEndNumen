@@ -5,17 +5,29 @@ const {
   getAlumnosIdController,
   updateAlumnoController,
   deleteAlumnoController,
+  
+  
 } = require("../controllers/controller");
+
+
+const checkAlumnosType =require('../utils/checkAlumnosType')//importamos desde checkaAlumnosType, el middewade
+
 //configurar los router
 const router = express.Router();
 
 //configurar los router correspondientes
 
+
+
+
+
+
+
 router.get("/alumnos", getAlumnosController);
 //logica de las rutas delegado a ->controller
 
 //insertamos un elemento POST *
-router.post("/alumnos", addAlumnosController);
+router.post("/alumnos",checkAlumnosType, addAlumnosController);
 
 //pedimos el objeto
 router.get("/alumnos/:id", getAlumnosIdController); //ponemos la variable en un :id o :pepito
