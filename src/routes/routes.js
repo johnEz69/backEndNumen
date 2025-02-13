@@ -37,7 +37,7 @@ router.delete("/alumnos/:id", deleteAlumnoController);
 
 
 
-router.get('/clima/:ciudad', getClimaController); // API A CONSUMIR (1)
+router.get('/clima/:ciudad', getClimaController); // API A CONSUMIR (1) en postman se debe poner /clima/moron (por ejemplo)
 
 module.exports = router;
 
