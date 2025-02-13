@@ -12,17 +12,15 @@ const {
 
 const checkAlumnosType =require('../utils/checkAlumnosType')//importamos desde checkaAlumnosType, el middewade
 
+
+
+const { getClimaController } = require('../controllers/climaController'); // FUNCION IMPORTADA
+
 //configurar los router
 const router = express.Router();
 
 //configurar los router correspondientes
-
-
-
-
-
-
-
+       
 router.get("/alumnos", getAlumnosController);
 //logica de las rutas delegado a ->controller
 
@@ -36,6 +34,10 @@ router.get("/alumnos/:id", getAlumnosIdController); //ponemos la variable en un 
 router.put("/alumnos/:id", updateAlumnoController);
 
 router.delete("/alumnos/:id", deleteAlumnoController);
+
+
+
+router.get('/clima/:ciudad', getClimaController); // API A CONSUMIR (1)
 
 module.exports = router;
 
